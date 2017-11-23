@@ -7,4 +7,5 @@
  * if its length is not known in advance?
  */
 
+
 /*READ THE C FASHION SOLUTION!*/
