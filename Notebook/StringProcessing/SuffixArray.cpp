@@ -66,6 +66,20 @@ ii stringMatching() { // string matching in O(m log n)
 	return ans;
 } // return lower/upperbound as first/second item of the pair, respectively
 
+int main() {
+	n = (int)strlen(gets(T)); // input T as per normal, without the ‘$’
+	T[n++] = ’$’; // add terminating character
+	constructSA();
+	for (int i = 0; i < n; i++) printf("%2d\t%s\n", SA[i], T + SA[i]);
+	while (m = (int)strlen(gets(P)), m) { // stop if P is an empty string
+		ii pos = stringMatching();
+		if (pos.first != -1 && pos.second != -1) {
+			printf("%s found, SA [%d..%d] of %s\n", P, pos.first, pos.second, T);
+			printf("They are:\n");
+			for (int i = pos.first; i <= pos.second; i++)
+				printf(" %s\n", T + SA[i]);
+		}else printf("%s is not found in %s\n", P, T);
+} } // return 0;
 
 
 void computeLCP() {
